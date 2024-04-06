@@ -1,0 +1,14 @@
+.galleryList {
+  list-style: none;
+  padding-top: 20px;
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.galleryItem {
+  width: calc((100% - 30px) / 4);
+  height: 300px;
+  /* overflow: hidden; */
+}

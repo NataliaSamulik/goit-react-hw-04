@@ -1,0 +1,14 @@
+.btnLoadMore {
+  margin-top: 15px;
+  background-color: rgb(84, 84, 234);
+  width: 120px;
+  height: 40px;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+}
+
+.btnLoadMore:hover {
+  background-color: rgb(14, 25, 153);
+}
