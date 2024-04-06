@@ -1,10 +1,19 @@
 import css from './SearchBar.module.css';
+import toast, { Toaster } from 'react-hot-toast';
+
+const notify = () => toast('Ви нічого не ввели для пошуку');
 
 const SearchBar = ({ onSearch }) => {
   const handleSubmit = evt => {
     evt.preventDefault();
     const form = evt.target;
-    onSearch(form.query.value);
+    const query = form.query.value;
+    console.log(query.trim() === '');
+    if (query.trim() === '') {
+      notify();
+      form.reset()
+    }
+    onSearch(query.trim());
   };
 
   return (
@@ -20,6 +29,7 @@ const SearchBar = ({ onSearch }) => {
         />
         <button type="submit">Search</button>
       </form>
+      <Toaster />
     </header>
   );
 };

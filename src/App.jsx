@@ -19,21 +19,19 @@ function App() {
   const [modalOpen, setModalOpen] = useState(false);
 
   const notify = () => toast('За вашим запитом нічого не знайдено');
-  const notify1 = () => toast('Ви нічого не ввели для пошуку');
 
   useEffect(() => {
     async function fatchImages() {
+      if(search==''){
+        return
+      }
       if (total === 1) {
         try {
           setLoading(true);
           setImages([]);
           setError(false);
-          if (search.trim() === '') {
-            notify1();
-            return;
-          }
+          
           const data = await fetchImagesWithKeyword(search, total);
-          console.log(search == '');
           if (data.results.length === 0) {
             notify();
             return;
@@ -60,6 +58,9 @@ function App() {
   }, [search, total]);
 
   const handleSearchSubmit = query => {
+    if(query == ''){
+      setImages([])
+    }
     setSearch(query);
     setTotal(1);
   };
